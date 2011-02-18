@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<portlet-app xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd"
+version="2.0"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd
+   http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd">
+   <portlet>
+      <portlet-name>WSRPFirstPortlet</portlet-name>
+      <portlet-class>org.gatein.example.portlets.wsrp.WSRPFirstPortlet</portlet-class>
+      <supports>
+         <mime-type>text/html</mime-type>
+         <portlet-mode>view</portlet-mode>
+         <portlet-mode>edit</portlet-mode>
+         <portlet-mode>help</portlet-mode>
+      </supports>
+      <portlet-info>
+         <title>WSRP First Portlet</title>
+      </portlet-info>
+
+      <container-runtime-option>
+        <name>org.gatein.pc.remotable</name>
+        <value>true</value>
+      </container-runtime-option>
+
+     <supported-public-render-parameter>sharedPRPs</supported-public-render-parameter>
+
+     <supported-publishing-event>
+       <qname xmlns:x="http:exoplatform.com/portlets">x:WSRPSampleEvent</qname>
+     </supported-publishing-event>
+   </portlet>
+
+   <portlet>
+      <portlet-name>WSRPSecondPortlet</portlet-name>
+      <portlet-class>org.gatein.example.portlets.wsrp.WSRPSecondPortlet</portlet-class>
+      <supports>
+         <mime-type>text/html</mime-type>
+         <portlet-mode>view</portlet-mode>
+      </supports>
+      <portlet-info>
+         <title>WSRP Second Portlet</title>
+      </portlet-info>
+
+      <container-runtime-option>
+        <name>org.gatein.pc.remotable</name>
+        <value>true</value>
+      </container-runtime-option>
+
+      <supported-public-render-parameter>sharedPRPs</supported-public-render-parameter>
+
+      <supported-processing-event>
+        <qname xmlns:x="http:exoplatform.com/portlets">x:WSRPSampleEvent</qname>
+      </supported-processing-event>
+   </portlet>
+
+   <public-render-parameter>
+     <identifier>sharedPRPs</identifier>
+     <qname xmlns:x="http:exoplatform.com/portlets">x:globalSharedPRPs</qname>
+   </public-render-parameter>
+
+   <event-definition>
+     <qname xmlns:x="http:exoplatform.com/portlets">x:WSRPSampleEvent</qname>
+     <value-type>org.gatein.example.portlets.wsrp.event.SampleEvent</value-type>
+   </event-definition>
+</portlet-app>
